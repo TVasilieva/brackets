@@ -4,9 +4,9 @@ module.exports = function check(str, bracketsConfig) {
 
     for (let i = 0; i < str.length; i ++) {
 
-        if (str[i] == '(') count++; else if (str[i] == ')') count--;
-        if (str[i] == '{') count++; else if (str[i] == '}') count--;
-        if (str[i] == '[') count++; else if (str[i] == ']') count--;
+        if (str[i] == '(') count++; else if (str[i + 1] == ')') count--;
+        if (str[i] == '{') count++; else if (str[i + 1] == '}') count--;
+        if (str[i] == '[') count++; else if (str[i + 1] == ']') count--;
         if (count < 0) break;
     }
 
