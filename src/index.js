@@ -1,15 +1,14 @@
 module.exports = function check(str, bracketsConfig) {
+    
+    let stack = [], 
+    openedBrackets = ['(','[','{'], 
+    closedBrackets = [')','}',']'],
+    arr = str.split('')
+    closeIndex,
+    openIndex;
 
-    let count = 0;
+    for (let i = 0, fullLength = arr.length; i < fullLength; i ++) {
+        openIndex = openedBrackets.indexOf(arr[i]);
 
-    for (let i = 0; i < str.length; i ++) {
-
-        if (str[i] == '(') count++; else if (str[i + 1] == ')') count--;
-        if (str[i] == '{') count++; else if (str[i + 1] == '}') count--;
-        if (str[i] == '[') count++; else if (str[i + 1] == ']') count--;
-        if (count < 0) break;
     }
-
-    if (count != 0) return false;
-    else return true;
 }
